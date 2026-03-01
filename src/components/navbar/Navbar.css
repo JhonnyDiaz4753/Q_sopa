@@ -1,0 +1,60 @@
+.navbar-wrapper {
+  width: 100%;
+  background-color: #121212;
+  border-bottom: 1px solid #2a2a2a;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar {
+  max-width: 1600px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 15px 40px;
+}
+
+/* Logo izquierda */
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ec1313;
+  box-shadow: 0 0 15px rgba(236, 19, 19, 0.4);
+}
+
+/* Centro */
+.navbar-center {
+  display: flex;
+  justify-content: center;
+}
+
+/* Derecha */
+.navbar-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.order-btn {
+  background-color: #ec1313;
+  border: none;
+  padding: 10px 25px;
+  color: white;
+  font-weight: bold;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.order-btn:hover {
+  background-color: #c40b0b;
+  transform: translateY(-2px);
+}
