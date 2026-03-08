@@ -1,0 +1,80 @@
+/* Contenedor general */
+.categories-wrapper {
+  overflow-x: auto;
+}
+
+.categories-container {
+  display: flex;
+  gap: 18px; /* antes 25px */
+}
+
+/* Botón */
+.category-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px; /* antes 8px */
+  min-width: 85px; /* antes 100px */
+  color: #aaa;
+  transition: 0.3s;
+}
+
+/* Icono más pequeño */
+.category-icon {
+  width: 48px;   /* antes 64px */
+  height: 48px;  /* antes 64px */
+  border-radius: 14px;
+  background-color: #1E1E1E;
+  border: 1px solid #2a2a2a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px; /* antes 28px */
+  transition: 0.3s;
+}
+
+/* Texto más fino */
+.category-label {
+  font-size: 13px;  /* antes 14px */
+  font-weight: 600;
+}
+
+/* Línea inferior más sutil */
+.category-underline {
+  height: 3px;  /* antes 4px */
+  width: 24px;  /* antes 30px */
+  background-color: transparent;
+  border-radius: 10px;
+  margin-top: 4px;
+  transition: 0.3s;
+}
+
+/* Hover */
+.category-btn:hover .category-icon {
+  border-color: #ec1313;
+  color: #ec1313;
+  transform: scale(1.06);
+}
+
+.category-btn:hover .category-label {
+  color: white;
+}
+
+/* Active */
+.category-btn.active .category-icon {
+  background-color: #ec1313;
+  color: white;
+  border: none;
+  box-shadow: 0 0 12px rgba(236, 19, 19, 0.3);
+}
+
+.category-btn.active .category-label {
+  color: white;
+}
+
+.category-btn.active .category-underline {
+  background-color: #ec1313;
+}
