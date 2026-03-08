@@ -9,9 +9,9 @@ export default function Navbar({ onCategoryChange }) {
 
         {/* Logo */}
         <div className="navbar-left">
-          
-          <img src={logo} alt="Burger Bistro Logo" className="navbar-logo" />
-    
+                   <a href="#" onClick={(e) => { e.preventDefault(); onLogoClick?.(); }}>
+            <img src={logo} alt="Burger Bistro Logo" className="navbar-logo" />
+          </a>
         </div>
 
         {/* Categorías — recibe el callback y lo pasa hacia abajo */}
