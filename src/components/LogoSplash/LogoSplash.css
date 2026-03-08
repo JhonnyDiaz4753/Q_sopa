@@ -1,0 +1,90 @@
+.logo-splash {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  gap: 32px;
+}
+
+/* ── Wrapper que contiene logo + ondas ── */
+.logo-ripple-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 220px;
+  height: 220px;
+}
+
+/* ── Ondas ── */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid #ec1313;
+  opacity: 0;
+  animation: ripple-out 3.2s ease-out infinite;
+}
+
+.ripple-1 { width: 140px; height: 140px; animation-delay: 0s;    }
+.ripple-2 { width: 180px; height: 180px; animation-delay: 0.7s;  }
+.ripple-3 { width: 220px; height: 220px; animation-delay: 1.4s;  }
+.ripple-4 { width: 260px; height: 260px; animation-delay: 2.1s;  }
+
+@keyframes ripple-out {
+  0%   { transform: scale(0.6); opacity: 0.7; }
+  100% { transform: scale(1.2); opacity: 0;   }
+}
+
+/* ── Círculo del logo ── */
+.logo-circle {
+  position: relative;
+  z-index: 2;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #ec1313;
+  box-shadow:
+    0 0 0 5px rgba(236, 19, 19, 0.12),
+    0 0 30px rgba(236, 19, 19, 0.25),
+    0 8px 32px rgba(0, 0, 0, 0.5);
+  animation: logo-pulse 3.2s ease-in-out infinite;
+}
+
+@keyframes logo-pulse {
+  0%, 100% { box-shadow: 0 0 0 5px rgba(236,19,19,0.12), 0 0 30px rgba(236,19,19,0.25), 0 8px 32px rgba(0,0,0,0.5); }
+  50%       { box-shadow: 0 0 0 8px rgba(236,19,19,0.20), 0 0 50px rgba(236,19,19,0.40), 0 8px 32px rgba(0,0,0,0.5); }
+}
+
+.logo-splash-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ── Texto inferior ── */
+.logo-splash-text {
+  color: #555;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  text-align: center;
+  animation: fade-in-up 0.8s ease both;
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0);     }
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .logo-splash { padding: 60px 20px; }
+  .logo-ripple-wrapper { width: 180px; height: 180px; }
+  .logo-circle { width: 100px; height: 100px; }
+  .ripple-1 { width: 120px; height: 120px; }
+  .ripple-2 { width: 155px; height: 155px; }
+  .ripple-3 { width: 190px; height: 190px; }
+  .ripple-4 { width: 225px; height: 225px; }
+}

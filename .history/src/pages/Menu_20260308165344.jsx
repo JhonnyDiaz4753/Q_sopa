@@ -73,7 +73,7 @@ export default function Menu() {
         {activeCategoryId !== null && !loading && !error && products.length > 0 && (
           <section className="products-grid">
             {products.map((product) => (
-              
+              console.log("Producto:", product), // Debug: Ver el producto que se está renderizando
               <ProductCard
                 key={product.id}
                 title={product.name}

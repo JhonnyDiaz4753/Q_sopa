@@ -9,7 +9,7 @@ export default function Navbar({ onCategoryChange }) {
 
         {/* Logo */}
         <div className="navbar-left">
-          <a href="#">
+          <a href="#"
           <img src={logo} alt="Burger Bistro Logo" className="navbar-logo" />
         </a>
         </div>
