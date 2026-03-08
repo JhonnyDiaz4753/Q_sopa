@@ -58,18 +58,8 @@
   background-color: #c40b0b;
   transform: translateY(-2px);
 }
-@media (max-width: 768px) {
-  .navbar {
-    grid-template-columns: 1fr auto;
-    padding: 10px 20px;
-  }
-
+@media (min-width: 769px) {
   
 
-  .order-btn {
-    padding: 8px 20px;
-    font-size: 14px;
-  }
 
- 
 }

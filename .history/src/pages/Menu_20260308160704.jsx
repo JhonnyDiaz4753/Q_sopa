@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Navbar from "../components/navbar/Navbar";
 import Footer from "../components/footer/footer";
 import ProductCard from "../components/ProductCard/ProductCard";
-import { getProductsByCategory } from "../services/api";
+import { getProductsByCategory } from "./services/api";
 import "./Menu.css";
 
 export default function Menu() {
@@ -59,12 +59,11 @@ export default function Menu() {
         {!loading && !error && products.length > 0 && (
           <section className="products-grid">
             {products.map((product) => (
-              console.log("Producto:", product), // Debug: Verificar estructura del producto  
               <ProductCard
                 key={product.id}
                 title={product.name}
                 price={product.price}
-                image={product.imageUrl}
+                image={product.image}
                 badge={product.badge ?? null}
               />
             ))}

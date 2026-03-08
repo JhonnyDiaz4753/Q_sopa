@@ -59,17 +59,26 @@
   transform: translateY(-2px);
 }
 @media (max-width: 768px) {
+
   .navbar {
-    grid-template-columns: 1fr auto;
-    padding: 10px 20px;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 
-  
-
-  .order-btn {
-    padding: 8px 20px;
-    font-size: 14px;
+  /* Logo al centro */
+  .navbar-left {
+    grid-column: 2;
+    justify-content: center;
   }
 
- 
+  /* Centro vacío o lo que tengas */
+  .navbar-center {
+    display: none;
+  }
+
+  /* Menú o botón a la esquina derecha */
+  .navbar-right {
+    grid-column: 3;
+    justify-content: flex-end;
+  }
+
 }

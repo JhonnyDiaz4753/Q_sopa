@@ -59,12 +59,11 @@ export default function Menu() {
         {!loading && !error && products.length > 0 && (
           <section className="products-grid">
             {products.map((product) => (
-              console.log("Producto:", product), // Debug: Verificar estructura del producto  
               <ProductCard
                 key={product.id}
                 title={product.name}
                 price={product.price}
-                image={product.imageUrl}
+                image={product.imge}
                 badge={product.badge ?? null}
               />
             ))}

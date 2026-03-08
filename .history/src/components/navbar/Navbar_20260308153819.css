@@ -64,7 +64,9 @@
     padding: 10px 20px;
   }
 
-  
+  .navbar-left {
+    display: none; /* Oculta el logo en pantallas pequeñas */
+  }
 
   .order-btn {
     padding: 8px 20px;

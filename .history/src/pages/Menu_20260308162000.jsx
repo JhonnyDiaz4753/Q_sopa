@@ -64,7 +64,7 @@ export default function Menu() {
                 key={product.id}
                 title={product.name}
                 price={product.price}
-                image={product.imageUrl}
+                image={product.imge}
                 badge={product.badge ?? null}
               />
             ))}
