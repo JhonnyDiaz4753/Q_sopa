@@ -12,10 +12,7 @@
 
 .product-card img {
   width: 100%;
-  height: 200px;        /* ← altura fija igual para todas */
-  object-fit: cover;    /* ← recorta sin deformar */
   border-radius: 10px;
-  display: block;
 }
 
 .product-info {
