@@ -5,34 +5,30 @@ import { getProductById, getIngredientsByProduct } from "../../services/api";
 
 export default function ProductCard({ id, title, price, image, badge }) {
   const [modalOpen, setModalOpen] = useState(false);
-  const [ingredients, setIngredients] = useState(null); // null = no cargado aún
-  const [description, setDescription] = useState(null);
-  const [loadingExtras, setLoadingExtras] = useState(false);
-
-  // Los datos base SIEMPRE vienen de las props — nunca desaparecen
-  const baseProduct = { id, name: title, price, image, badge };
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handleOpenModal = () => {
     setModalOpen(true);
 
-    // Si ya cargamos ingredientes/descripción no repetimos
-    if (ingredients !== null) return;
+    // Si ya cargamos los datos no repetimos la llamada
+    if (product) return;
 
-    setLoadingExtras(true);
+    setLoading(true);
 
+    // Llamamos producto e ingredientes en paralelo
     Promise.all([
       getProductById(id),
       getIngredientsByProduct(id),
     ])
       .then(([productData, ingredientsData]) => {
-        setDescription(productData.description ?? "");
-        setIngredients(ingredientsData ?? []);
+        setProduct({ ...productData, ingredients: ingredientsData });
       })
       .catch(() => {
-        setDescription("");
-        setIngredients([]);
+        // Fallback con datos básicos si algo falla
+        setProduct({ id, name: title, price, image, badge, ingredients: [], description: "" });
       })
-      .finally(() => setLoadingExtras(false));
+      .finally(() => setLoading(false));
   };
 
   return (
@@ -50,9 +46,14 @@ export default function ProductCard({ id, title, price, image, badge }) {
       </div>
 
       {modalOpen && (
+        console.log("Datos del producto:", product),
         <ProductModal
-          product={{ ...baseProduct, description, ingredients: ingredients ?? [] }}
-          loading={loadingExtras}
+          product={
+            loading
+              ? { name: title, price, image, badge, ingredients: [], description: "" }
+              : product
+          }
+          loading={loading}
           onClose={() => setModalOpen(false)}
         />
       )}
