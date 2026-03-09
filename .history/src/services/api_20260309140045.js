@@ -17,7 +17,7 @@ export const getProductsByCategory = async (categoryId) => {
   return res.json();
 };
 export const getProductById = async (productId) => {
-  const res = await fetch(`${BASE_URL}/products/${productId}/ingredients`);
+  const res = await fetch(`${BASE_URL}/products/${productId}`);
   if (!res.ok) throw new Error("Error al cargar el producto");
   return res.json();
 };

@@ -18,8 +18,6 @@ export default function ProductModal({ product, loading, onClose }) {
   if (!product) return null;
 
   const ingredients = product.ingredients ?? [];
-  console.log("Ingredientes del producto:", product);
-
 
   return (
     <div className="modal-overlay" onClick={onClose}>

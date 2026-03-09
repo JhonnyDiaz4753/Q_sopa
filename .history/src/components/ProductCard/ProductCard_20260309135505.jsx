@@ -1,9 +1,9 @@
 import { useState } from "react";
 import "./ProductCard.css";
 import ProductModal from "../ProductModal/ProductModal";
-import { getProductById, getIngredientsByProduct } from "../../services/api";
+import { getProductById } from "../services/api";
 
-export default function ProductCard({ id, title, price, image, badge }) {
+export default function ProductCard({ title, price, image, badge, id }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -11,21 +11,14 @@ export default function ProductCard({ id, title, price, image, badge }) {
   const handleOpenModal = () => {
     setModalOpen(true);
 
-    // Si ya cargamos los datos no repetimos la llamada
+    // Si ya tenemos los datos no volvemos a pedir
     if (product) return;
 
     setLoading(true);
-
-    // Llamamos producto e ingredientes en paralelo
-    Promise.all([
-      getProductById(id),
-      getIngredientsByProduct(id),
-    ])
-      .then(([productData, ingredientsData]) => {
-        setProduct({ ...productData, ingredients: ingredientsData });
-      })
+    getProductById(id)
+      .then((data) => setProduct(data))
       .catch(() => {
-        // Fallback con datos básicos si algo falla
+        // Si falla, construimos un objeto básico con lo que ya tenemos
         setProduct({ id, name: title, price, image, badge, ingredients: [], description: "" });
       })
       .finally(() => setLoading(false));
@@ -35,24 +28,23 @@ export default function ProductCard({ id, title, price, image, badge }) {
     <>
       <div className="product-card">
         {badge && <div className="badge">{badge}</div>}
+
         <img src={image} alt={title} />
+
         <div className="product-info">
           <h4>{title}</h4>
           <span>${price}</span>
         </div>
+
         <button className="product-btn" onClick={handleOpenModal}>
           Ingredientes
         </button>
       </div>
 
+      {/* Modal */}
       {modalOpen && (
         <ProductModal
-          product={
-            loading
-              ? { name: title, price, image, badge, ingredients: [], description: "" }
-              : product
-          }
-          loading={loading}
+          product={loading ? { name: title, price, image, badge, ingredients: [], description: "" } : product}
           onClose={() => setModalOpen(false)}
         />
       )}

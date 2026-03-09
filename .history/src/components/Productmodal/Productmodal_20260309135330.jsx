@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import "./ProductModal.css";
 
-export default function ProductModal({ product, loading, onClose }) {
+export default function ProductModal({ product, onClose }) {
   // Cierra con Escape
   useEffect(() => {
     const handleKey = (e) => { if (e.key === "Escape") onClose(); };
@@ -17,14 +17,15 @@ export default function ProductModal({ product, loading, onClose }) {
 
   if (!product) return null;
 
+  // ingredients puede venir como array de objetos o array de strings
   const ingredients = product.ingredients ?? [];
-  console.log("Ingredientes del producto:", product);
-
 
   return (
     <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-panel" onClick={(e) => e.stopPropagation()}>
-
+      <div
+        className="modal-panel"
+        onClick={(e) => e.stopPropagation()} // evita cierre al clickear dentro
+      >
         {/* ── Botón cerrar ── */}
         <button className="modal-close" onClick={onClose} aria-label="Cerrar">
           <span className="material-symbols-outlined">close</span>
@@ -32,13 +33,17 @@ export default function ProductModal({ product, loading, onClose }) {
 
         {/* ── Imagen ── */}
         <div className="modal-image-wrapper">
-          <img src={product.image} alt={product.name} className="modal-image" />
+          <img
+            src={product.image}
+            alt={product.name}
+            className="modal-image"
+          />
           {product.badge && (
             <span className="modal-badge">{product.badge}</span>
           )}
         </div>
 
-        {/* ── Cuerpo ── */}
+        {/* ── Contenido ── */}
         <div className="modal-body">
 
           {/* Nombre + precio */}
@@ -59,38 +64,23 @@ export default function ProductModal({ product, loading, onClose }) {
           )}
 
           {/* Ingredientes */}
-          <div className="modal-section">
-            <h4 className="modal-section-title">
-              <span className="material-symbols-outlined">grocery</span>
-              Ingredientes
-            </h4>
-
-            {/* Skeleton mientras carga */}
-            {loading && (
-              <ul className="modal-ingredients">
-                {[1, 2, 3, 4].map((i) => (
-                  <li key={i} className="modal-ingredient-skeleton" />
-                ))}
-              </ul>
-            )}
-
-            {/* Sin ingredientes */}
-            {!loading && ingredients.length === 0 && (
-              <p className="modal-empty-ingredients">Sin ingredientes registrados.</p>
-            )}
-
-            {/* Lista real */}
-            {!loading && ingredients.length > 0 && (
+          {ingredients.length > 0 && (
+            <div className="modal-section">
+              <h4 className="modal-section-title">
+                <span className="material-symbols-outlined">grocery</span>
+                Ingredientes
+              </h4>
               <ul className="modal-ingredients">
                 {ingredients.map((ing, i) => (
                   <li key={i} className="modal-ingredient-item">
                     <span className="ingredient-dot" />
+                    {/* Soporta string o { name: "..." } */}
                     {typeof ing === "string" ? ing : ing.name}
                   </li>
                 ))}
               </ul>
-            )}
-          </div>
+            </div>
+          )}
 
         </div>
       </div>

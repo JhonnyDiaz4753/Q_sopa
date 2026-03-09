@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./ProductCard.css";
 import ProductModal from "../ProductModal/ProductModal";
-import { getProductById, getIngredientsByProduct } from "../../services/api";
+import {  getIngredientsByProduct } from "../../services/api";
 
 export default function ProductCard({ id, title, price, image, badge }) {
   const [modalOpen, setModalOpen] = useState(false);

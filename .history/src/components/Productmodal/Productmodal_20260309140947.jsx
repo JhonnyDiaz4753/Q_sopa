@@ -18,7 +18,7 @@ export default function ProductModal({ product, loading, onClose }) {
   if (!product) return null;
 
   const ingredients = product.ingredients ?? [];
-  console.log("Ingredientes del producto:", product);
+  console.log("Ingredientes del producto:", ingredients);
 
 
   return (
