@@ -1,0 +1,81 @@
+/* =============================================
+   TEMA GLOBAL — Dark (default) + Light
+   Importar en main.jsx o App.jsx:
+   import './theme.css'
+   ============================================= */
+
+:root {
+  /* ── Acento (igual en ambos temas) ── */
+  --color-accent:        #ec1313;
+  --color-accent-hover:  #c40b0b;
+  --color-accent-soft:   rgba(236, 19, 19, 0.12);
+  --color-accent-glow:   rgba(236, 19, 19, 0.3);
+  --color-badge:         #FFD60A;
+  --color-badge-text:    #000;
+
+  /* ── Dark mode (por defecto) ── */
+  --bg-page:         #121212;
+  --bg-card:         #1E1E1E;
+  --bg-card-alt:     #1a1a1a;
+  --bg-element:      #252525;
+  --bg-element-alt:  #242424;
+
+  --border-color:    #2a2a2a;
+  --border-color-alt:#2e2e2e;
+
+  --text-primary:    #ffffff;
+  --text-secondary:  #cccccc;
+  --text-muted:      #aaaaaa;
+  --text-faint:      #555555;
+
+  --shadow-card:     0 24px 64px rgba(0,0,0,0.7);
+  --shadow-logo:     0 8px 32px rgba(0,0,0,0.5);
+
+  --navbar-bg:       #121212;
+  --drawer-bg:       #1a1a1a;
+  --footer-bg:       #000000;
+
+  --shimmer-a:       #242424;
+  --shimmer-b:       #2e2e2e;
+
+  --modal-gradient:  #1a1a1a;
+  --modal-close-bg:  rgba(0,0,0,0.5);
+
+  /* Transición global al cambiar tema */
+  --theme-transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* ── Light mode ── */
+html.light {
+  --bg-page:         #f4f4f4;
+  --bg-card:         #ffffff;
+  --bg-card-alt:     #fafafa;
+  --bg-element:      #efefef;
+  --bg-element-alt:  #e8e8e8;
+
+  --border-color:    #e0e0e0;
+  --border-color-alt:#d5d5d5;
+
+  --text-primary:    #111111;
+  --text-secondary:  #333333;
+  --text-muted:      #666666;
+  --text-faint:      #999999;
+
+  --shadow-card:     0 24px 64px rgba(0,0,0,0.12);
+  --shadow-logo:     0 8px 32px rgba(0,0,0,0.15);
+
+  --navbar-bg:       #ffffff;
+  --drawer-bg:       #ffffff;
+  --footer-bg:       #1a1a1a;
+
+  --shimmer-a:       #e8e8e8;
+  --shimmer-b:       #f0f0f0;
+
+  --modal-gradient:  #ffffff;
+  --modal-close-bg:  rgba(255,255,255,0.8);
+}
+
+/* Transición suave en todos los elementos */
+*, *::before, *::after {
+  transition: var(--theme-transition);
+}

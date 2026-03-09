@@ -1,7 +1,7 @@
 .footer {
- background-color: var(--bg-page);
+  background-color: black;
   text-align: center;
   padding: 30px;
-  color: var(--text-secondary);
+  color: #777;
   margin-top: 50px;
 }

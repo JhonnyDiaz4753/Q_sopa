@@ -53,12 +53,13 @@
   cursor: pointer;
   transition: 0.3s;
 }
+
 .order-btn:hover {
   background-color: var(--color-accent-hover);
   transform: translateY(-2px);
 }
 
-/* ── Toggle tema ── */
+/* ── Botón toggle de tema ── */
 .theme-toggle {
   width: 40px;
   height: 40px;
@@ -74,54 +75,21 @@
   transition: all 0.3s;
   flex-shrink: 0;
 }
+
 .theme-toggle:hover {
   border-color: var(--color-accent);
   color: var(--color-accent);
   transform: rotate(20deg);
 }
 
-/* ── Mobile ── */
 @media (max-width: 768px) {
   .navbar {
-    /* logo+toggle | categorías (drawer) */
-    grid-template-columns: auto 1fr;
-    grid-template-areas: "left center";
+    grid-template-columns: 1fr auto;
     padding: 10px 20px;
-    gap: 12px;
-  }
-
-  .navbar-left {
-    grid-area: left;
-    display: flex;
-    align-items: center;
-    gap: 10px; /* espacio entre logo y toggle */
-  }
-
-  /* En móvil el toggle se mete dentro de navbar-left (ver JSX) */
-  .navbar-center {
-    grid-area: center;
-    justify-content: flex-end;
-  }
-
-  /* Oculta la columna derecha original en móvil */
-  .navbar-right {
-    display: none;
-  }
-
-  /* Toggle visible dentro de navbar-left en móvil */
-  .theme-toggle-mobile {
-    display: flex;
   }
 
   .order-btn {
     padding: 8px 20px;
     font-size: 14px;
-  }
-}
-
-/* En desktop oculta el toggle que está en navbar-left */
-@media (min-width: 769px) {
-  .theme-toggle-mobile {
-    display: none;
   }
 }
