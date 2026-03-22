@@ -21,10 +21,9 @@ Aplicación web para que los clientes de un restaurante consulten el menú compl
 
 | Vista móvil | Vista desktop |
 |---|---|
-| ![<img width="412" height="821" alt="Captura de pantalla 2026-03-08 171904" src="https://github.com/user-attachments/assets/e9dab969-728a-432c-9531-b8df88884da6" />
-] | ![<img width="1896" height="952" alt="Captura de pantalla 2026-02-28 153634" src="https://github.com/user-attachments/assets/964008ff-256b-469d-ab69-fd9dc4f103da" />
-] |
-
+| ![mobile screenshot] | ![desktop screenshot] |
+|---|---|
+| <img width="412" height="821" alt="Captura de pantalla 2026-03-08 171904" src="https://github.com/user-attachments/assets/1beb1de1-4095-4d5c-bf30-8459cc67980a" /> | <img width="1896" height="952" alt="Captura de pantalla 2026-02-28 153634" src="https://github.com/user-attachments/assets/25e0668a-e01a-4456-98a3-8d0e56e1162a" />|
 ---
 
 ## 🛠 Stack tecnológico
