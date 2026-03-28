@@ -1,4 +1,4 @@
-const BASE_URL = "https://api-node-qsopa.vercel.app";
+const BASE_URL = "http://localhost:8080/";
 
 export const getCategorias = async () => {
   const res = await fetch(`${BASE_URL}/categories`);
